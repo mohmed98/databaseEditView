@@ -1,0 +1,27 @@
+.body-content, th, h1 {
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+    border: none;
+}
+
+td, th {
+    border: none;
+    border-bottom: 0.5px solid gray;
+    padding: 2px;
+}
+
+table {
+    padding: 10px;
+}
+
+button {
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: lightblue;
+}

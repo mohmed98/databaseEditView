@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inlineForm/site.css' %}" />
+</head>
+
+<body>
+    <h1>Course Score </h1>
+    <form method="POST">
+        {%csrf_token %}
+        <!-- {{formset.as_p}} -->
+        {{ formset.management_form }}
+        <!-- {{ formset.management_form }} -->
+        <table>
+            <tr>
+                <th>course</th>
+                <th>student</th>
+                <th>couesePractical</th>
+                <th>courseYearWork</th>
+                <th>score</th>
+                <th>finalExamAbsent</th>
+                <th>finalExamScore</th>
+                <th>courseTotalScore</th>
+            </tr>
+            {% for form in formset %}
+            {% for hidden in form.hidden_fields %}
+            {{ hidden}}
+            {% endfor %}
+            {% for hidden in form.errors %}
+            {{ errors}}
+            {% endfor %}
+            <tr>
+                <td>{{form.courseID}}</td>
+                <td>{{form.studentID}}</td>
+                <td>{{form.couesePractical}}</td>
+                <td>{{form.courseYearWork}}</td>
+                <td>{{form.finalExamScore}}</td>
+                <td>{{form.finalExamAbsent}}</td>
+                <td>{{form.finalExamScore}}</td>
+                <td>{{form.courseTotalScore}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">save</button>
+    </form>
+</body>
+
+</html>
